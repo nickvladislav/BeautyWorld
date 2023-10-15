@@ -17,6 +17,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
+    color: #333;
 }
 
 .header {
@@ -24,7 +25,7 @@ h1, h2, h3, h4, h5, h6, p {
 
     &__logo {
         font-size: 24px;
-        font-weight: 700;  
+        font-weight: 700;
     }
 
     &__top {
@@ -76,6 +77,7 @@ h1, h2, h3, h4, h5, h6, p {
         padding: 17px 30px;
         margin-top: 50px;
         font-size: 14px;
+        width: 203px;
     }
 
     &__image {
@@ -164,7 +166,6 @@ a:hover {
 
 .button {
     background-color: $orange; 
-    width: fit-content;
     border-radius: 24px;
     border: none;
     font-family: 'Montserrat', sans-serif;
@@ -186,12 +187,16 @@ a:hover {
         width: 570px;
     }
 
-    &__video {
+    &__soap {
         width: 445px;
-        height: 297px;
+        height: 296.33px;
+    }
+
+    &__video {
         position: relative;
         left: 0;
-        bottom: -88px;
+        align-self: flex-end;
+        top: 6px;
     }
 
     &__content {
@@ -242,12 +247,25 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    &:first-of-type {
+        padding: 0 25px;
+        }
+        
+        &:nth-of-type(2) {
+        padding: 0 47.5px;
+        }
+        
+    &:last-of-type {
+        padding: 0 43.5px;
+        }
 
     &__img {
         width: 48px;
         height: 48px;
         margin-bottom: 20px;
     }
+
     &__text {
         text-align: center;
         font-size: 14px;
@@ -260,18 +278,6 @@ a:hover {
     font-size: 18px;
     font-weight: 600;
     padding-bottom: 12px;
-}
-
-.text-1 {
-    width: 296px;
-}
-
-.text-2 {
-    width: 255px;
-}
-
-.text-3 {
-    width: 263px;
 }
 
 /* SERVICE LIST */
@@ -304,7 +310,6 @@ a:hover {
     &__title {
         padding-bottom: 32px;
     }
-
 }
 
 .text-small {
@@ -312,9 +317,13 @@ a:hover {
     font-size: 12px;
 }
 
+.text-medium {
+    font-size: 14px;
+}
+
 .service-price {
 
-    padding: 100px;
+    padding: 100px 0;
 
     &__wrapper {
         display: flex;
@@ -348,21 +357,22 @@ a:hover {
         font-weight: 600;
         }
 
-    &__link:hover {
-        color: $green;
-        cursor: pointer;
-    }
+    &__link {
+        &:hover {
+            color: $green;
+            cursor: pointer;
+        }
 
-    &__link:active {
-        text-decoration: underline;
+        &:active {
+            text-decoration: underline;
+        }
     }
-
 }
     
 /* MASTERS */
 
 .masters {
-    padding: 80px;
+    padding: 80px 0;
     background-color: #F8F6F7;
 
     &__about {
@@ -386,11 +396,11 @@ a:hover {
     &__photo {
         margin-bottom: 20px;
         cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      width: 255px;
-      height: 300px;
-      text-align:center;
+        position: relative;
+        overflow: hidden;
+        width: 255px;
+        height: 300px;
+        text-align:center;
     }
 
     &__sevice {
@@ -404,22 +414,227 @@ a:hover {
         left: 0;
         color: $white;
         -webkit-transition: all 300ms ease-out;
-          -moz-transition: all 300ms ease-out;
-          -o-transition: all 300ms ease-out;
-          -ms-transition: all 300ms ease-out;
-          transition: all 300ms ease-out;
-          opacity: 0;
-          width: 255px;
-          height: 300px;
-          padding: 130px 20px;
-          font-size: 14px;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        opacity: 0;
+        width: 255px;
+        height: 300px;
+        padding: 130px 20px;
+        font-size: 14px;
+        border-radius: 8px;
     }
 
     &__photo:hover .masters__link {
         opacity: 0.5;
         color: $white;
     }
+}
 
+/* PORTFOLIO */ 
+
+.portfolio {
+   
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__photo {
+        cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      width: 338px;
+      height: 338px;
+      text-align:center;
+      transition: 0.5s;
+      border-radius: 8px;
+    }
+
+    &__img {
+        border-radius: 8px;
+    }
+    
+    &__search {
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $white;
+        -webkit-transition: all 300ms ease-out;
+        -moz-transition: all 300ms ease-out;
+        -o-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+        transition: all 300ms ease-out;
+        opacity: 0;
+        width: 338px;
+        height: 338px;
+        padding: 130px 20px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 8px;
+        border-radius: 8px;
+    }
+
+    &__photo {
+        &:hover .portfolio__search {
+            opacity: 0.5;
+        }
+    
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__link {
+        color: $white;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    &__about {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 116px;
+    }
+
+    &__title {
+        padding-bottom: 52px;
+    }
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.search {
+    width: 48px;
+    height: 48px;
+}
+
+.brands {
+
+    &__text{
+        line-height: 26px;
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+
+    &__icon {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        margin-bottom: 100px;
+        opacity: 0.5;
+        max-width: 880px;
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+}
+
+/* CONTACT-US */
+
+.contact-us {
+    background-color: #F8F6F7;
+
+    &__wrapper {
+        width: 328px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        padding-top: 78px;
+        padding-bottom: 16px;
+    }
+
+    &__text {
+        padding-top: 16px;
+        padding-bottom: 10px;
+    }
+
+    &__number {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__mail {
+        padding-top: 10px;
+        padding-bottom: 16px;
+    }
+
+    &__social {
+        padding-bottom: 12px;
+        padding-top: 16px;
+    }
+
+    &__icon {
+        max-width: 147px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.contact__form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form { 
+    max-width: 460px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    margin: 40px 95px 40px 0;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+    }
+
+    &__button {
+        padding: 17px 30px;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    &__text {
+        padding: 15px 0 35px;
+    }
+}
+
+.client-name {
+    padding: 15px 0 15px 16px;
+    border-radius: 4px;
+    border: 1px solid #D8D8D8;
+}
+
+.client-phone {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 15px 0 15px 16px;
+    border-radius: 4px;
+    border: 1px solid #D8D8D8;
+}
+
+.personal {
+    
+    &__data {
+        color: #278AFF;
+        text-decoration: underline;
+
+        &:hover {
+            color: #278AFF;
+        }
+    }
 }
 
 /* FOOTER */
@@ -438,3 +653,501 @@ a:hover {
     }
 
 }
+
+.none {
+    display:none;
+}
+
+
+
+@media only screen and (max-width: 1280px) /*ОТ 993 ДО 1280*/ {
+
+    .container {
+        padding: 0 10px 0 10px;
+    }
+
+    /* ABOUT */ 
+
+    .about__wrapper {
+        max-width: 530px;
+    }
+    
+    .video__soap {
+        max-width: 400px;
+        max-height: 267px;
+    }
+
+    .icon__text {
+       left: 110px;
+       bottom: 90px;
+    }
+
+    .service__subtitle {
+        font-size: 16px;
+    }
+
+    .service__text {
+        font-size: 14px;
+    }
+
+    /* SERVICE-LIST */ 
+
+    .service-list__wrapper {
+        justify-content: center;
+    }
+
+    /* MASTERS */ 
+
+    .masters__photo {
+    width: 220px;
+    height: 250px;
+    }
+
+   .masters__img {
+    width: 220px;
+    height: 250px;
+   }
+
+   .masters__about {
+    width: 220px;
+   }
+
+   .masters__link {
+    width: 220px;
+    height: 250px;
+    padding: 110px 15px;
+   }
+
+    /* CONTACT-US */
+
+    .contact-us__wrapper {
+        padding-left: 20px;
+    }
+
+    /* PORTFOLIO */
+    
+    .portfolio__photo {
+        height: 220px;
+        width: 220px;
+    }
+
+    .portfolio__img {
+        height: 220px;
+        width: 220px;
+    }
+
+    .portfolio__search {
+        height: 220px;
+        width: 220px;
+        padding: 75px 20px;
+    }
+
+    .portfolio__about {
+        gap: 15px;
+    }
+
+}
+    
+    /* Medium Devices, Desktops */ 
+    @media only screen and (max-width: 992px) /*ОТ 769 ДО 992*/ {
+    
+        .title {
+            font-size: 32px;
+        }
+    
+        .desc {
+            font-size: 16px;
+        }
+    
+        .header__image {
+        opacity: 0.5;
+        z-index: -1;
+        }
+    
+        .navigation__list {
+        max-width: 350px;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        } 
+    
+        .service__subtitle {
+        font-size: 12px;
+        }
+    
+        .social {
+        flex-direction: row;
+        }
+
+        /* ABOUT */ 
+
+        .about__wrapper {
+            width: 340px;
+        }
+    
+        .about__desc {
+            font-size: 12px;
+        }
+
+        .about__text {
+            font-size: 10px;
+        }
+
+        .about__video  {
+            align-self: center;
+        }
+
+        .service__subtitle {
+            text-align: center;
+        }
+
+        /* SERVICE-PRICE */ 
+
+        .service-price__navigation {
+            gap: 14px;
+        }
+
+        .service-price__card {
+            width: 370px;
+        }
+
+        .service-price__subtitle {
+            font-size: 14px;
+        }
+
+        .service-price__text {
+            font-size: 12px;
+        }
+
+        .service-price__price {
+            font-size: 16px;
+        }
+
+        /* MASTERS */ 
+
+        .masters__wrapper {
+            gap: 50px;
+            row-gap: 20px;
+            justify-content: center;
+        }
+
+        /* CONTACT-US */ 
+
+        .form {
+            margin: 40px 0 40px 40px;
+        }
+
+    } 
+    
+    /* Small Devices, Tablets */ 
+    @media only screen and (max-width: 768px) /*ОТ 481 ДО 768*/ {
+        
+        /*HEADER*/ 
+    
+        .header__logo {
+            font-size: 16px;
+        }
+        .header__number {
+            max-width: 90px;
+        }
+        .contact__number {
+            font-size: 10px;
+        }
+        .contact__time {
+            font-size: 8px;
+            text-align: center;
+        }
+        .navigation__list {
+            display: none;
+        }
+        .header__content {
+            flex-direction: column;
+            margin-top: 100px;
+        }
+        .header__image {
+            display: none;
+        }
+        .header__main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            row-gap: 20px;
+        }
+        .header__button {
+            margin: 0;
+        }
+        .header__title {
+            font-size: 36px;
+            text-align: center;
+        }
+
+            /* ABOUT */ 
+
+        .about__content {
+            flex-direction: column;
+        }
+
+        .about__wrapper {
+            align-self: center;
+        }
+
+        .about__service {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service {
+            margin-bottom: 25px;
+        }
+
+        /* SERVICE-LIST */ 
+
+        .service-list__title {
+            text-align: center;
+        }
+
+        /* SERVICE-PRICE */
+
+        .service-price {
+            padding: 50px 0;
+        }
+
+        .service-price__title {
+            text-align: center;
+        }
+
+        .service-price__navigation {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            row-gap: 20px;
+        }
+
+        .service-price__card {
+            width: 459px;
+        }
+
+        /* MASTERS */
+
+        .masters {
+            padding-bottom: 25px;
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio {
+            padding-top: 25px;
+        }
+
+        .portfolio__about {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        /* BRANDS */
+
+        .brands__icon {
+        flex-wrap: wrap;
+        gap: 25px;
+        flex-direction: column;
+        margin: 25px;
+        }
+
+        /* CONTACT-US */
+
+        .contact-us__wrapper {
+            padding: 0;
+        }
+
+        .contact-us__title {
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .contact-us__text {
+            text-align: center;
+        }
+
+        .contact-us__number {
+            text-align: center;
+        }
+
+        .contact-us__mail {
+            text-align: center;
+        }
+
+        .contact-us__social {
+            text-align: center;
+        }
+
+        .contact-us__icon {
+            max-width: 328px;
+            justify-content: center;
+        }
+
+        .contact__form { 
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form {
+            margin: 20px;
+        }
+
+        /* FOOTER */
+        
+        .footer__list {
+            flex-wrap: wrap;
+            justify-content: end;
+            margin: 0;
+            gap: 14px;
+            max-width: 250px;
+        }
+
+        .footer__text {
+            font-size: 10px;
+        }
+
+        .footer__link {
+            font-size: 10px;
+        }
+
+        .footer__navigation {
+            display: flex;
+            justify-content: space-between;
+        }
+    } 
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width: 480px) /*ОТ 321 ДО 480*/ { 
+        .header__main {
+            width: 300px;
+            row-gap: 50px
+        }
+        .header__title {
+            font-size: 24px;
+            text-align: center;
+        } 
+        .header__desc {
+            font-size: 12px;
+        }
+        
+        /* ABOUT */ 
+
+        .about__title {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .about__wrapper {
+            width: 300px;
+        }
+
+        .about__text {
+            font-size: 12px;
+        }
+
+        .video__soap{
+            width: 300px;
+            height: 210px;
+        }
+
+        .icon__text {
+            left: 62px;
+            bottom: 60px;
+        }
+
+        /* SERVICE-LIST */ 
+
+        .service-list__item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-list__img {
+            width: 300px;
+            height: 210px;
+            align-self: center;
+        }
+
+        .service-list__subtitle {
+            text-align: center;
+        }
+
+        .service-list__text {
+            text-align: center;
+        }
+
+        /* SERVICE-PRICE */
+
+        .service-price__subtitle {
+            font-size: 12px;
+        }
+
+        .service-price__text {
+            font-size: 10px;
+        }
+
+        .service-price__price {
+            font-size: 12px;
+        }
+
+        .service-price__link {
+            width: 160px;
+        }
+
+        /* MASTERS */ 
+
+        .masters__title {
+            text-align: center;
+        }
+
+        .masters__text {
+            text-align: center;
+        }
+
+        /* PORTFOLIO */ 
+
+        .portfolio__wrapper {
+            flex-direction: column;
+        }
+
+        .portfolio__title {
+            text-align: center;
+            padding-bottom: 25px;
+        }
+
+        .arrow__wrapper {
+            display: flex;
+            justify-content:space-between;
+            padding-bottom: 25px;
+        }
+
+        /* PORTFOLIO */
+
+        .footer__navigation {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer__info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer__list {
+            display: none;
+        }
+
+        .form__policy {
+            text-align: center;
+        }
+
+
+
+    } 
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width: 320px) { 
+    }
