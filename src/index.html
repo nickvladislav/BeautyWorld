@@ -12,28 +12,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 </head>
 <body>
     <header class="header">
         <div class="container">
                 <div class="header__top">
+                    <button class="header__menu-btn" id="mobile-menu">
+                        <img class="burger__menu" src="./Img/header/burger.svg" alt="">
+                    </button>
                     <a class="header__logo" href="./index.html">Мир красоты</a>
                     <nav class="navigation">
                         <ul class="navigation__list nav">
                                 <li class="navigation-items">
-                                        <a class="navigation-link" href="#">Услуги и цены</a>
+                                        <a class="navigation-link" href="#service-price">Услуги и цены</a>
                                 </li>
                                 <li class="navigation-items">
-                                        <a class="navigation-link" href="#">Мастера</a>
+                                        <a class="navigation-link" href="#masters">Мастера</a>
                                 </li>
                                 <li class="navigation-items">
-                                        <a class="navigation-link" href="#">Наши работы</a>
+                                        <a class="navigation-link" href="#portfolio">Наши работы</a>
                                 </li>
                                 <li class="navigation-items">
-                                        <a class="navigation-link" href="#">О нас</a>
+                                        <a class="navigation-link" href="#about">О нас</a>
                                 </li>
                                 <li class="navigation-items">
-                                        <a class="navigation-link" href="#">Контакты</a>
+                                        <a class="navigation-link" href="#contact-us">Контакты</a>
                                 </li>
                         </ul>
                     </nav>
@@ -61,7 +67,7 @@
          </div>
     </header>
 <main class="main">
-    <section class="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about__content">
                 <div class="about__wrapper">
@@ -98,7 +104,7 @@
             </div>
         </div>            
     </section>
-    <section class="service-list">
+    <section class="service-list" id="service-link">
         <div class="container">
             <h1 class="service-list__title title">Популярные услуги</h1>
             <div class="service-list__wrapper">
@@ -136,34 +142,34 @@
         </div>
     </section>
 
-    <section class="service-price">
+    <section class="service-price" id="service-price">
         <div class="container">
             <h1 class="service-price__title title">Услуги и цены</h1>
             <div class="service-price__navigator">
                 <nav class="service-price__nav">
                     <ul class="service-price__navigation nav">
                             <li class="service-price__items">
-                                <p class="service-price__link">Стрижка и укладка</p>
+                                <p class="service-price__link" data-tab="#tab_hair">Стрижка и укладка</p>
                             </li>
                             <li class="service-price__items">
-                                <p class="service-price__link">Косметология</p>
+                                <p class="service-price__link" data-tab="#tab_cosmetology">Косметология</p>
                             </li>
                             <li class="service-price__items">
-                                <p class="service-price__link">Маникюр и педикюр</p>
+                                <p class="service-price__link" data-tab="#tab_nails">Маникюр и педикюр</p>
                             </li>
                             <li class="service-price__items">
-                                <p class="service-price__link">Макияж</p>
+                                <p class="service-price__link" data-tab="#tab_makeup">Макияж</p>
                             </li>
                             <li class="service-price__items">
-                                <p class="service-price__link">Брови и ресницы</p>
+                                <p class="service-price__link" data-tab="#tab_brows">Брови и ресницы</p>
                             </li>
                             <li class="service-price__items">
-                                <p class="service-price__link">Массаж</p>
+                                <p class="service-price__link" data-tab="#tab_massage">Массаж</p>
                         </li>
                     </ul>
                 </nav>
             </div>
-            <div class="service-price__wrapper">
+            <div class="service-price__wrapper" id="tab_hair">
                 <div class="service-price__card">
                     <div class="service-price__name">
                         <h2 class="service-price__subtitle subtitle">Женская стрижка</h2>
@@ -220,10 +226,305 @@
                     </div>
                     <p class="service-price__price">3000 ₽</p>
                 </div>
-        </div>
+            </div>
+            <!-- cosmetology -->
+            <div class="service-price__wrapper" id="tab_cosmetology"> 
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Механическая чистка</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Глубокий пилинг</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Аппаратная чистка</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Пилинг</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Экспресс уход</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Гелевые маски</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Кремовые маски</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1400 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Каллоген</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">3500 ₽</p>
+                </div>
+            </div>
+            <!-- nails -->
+            <div class="service-price__wrapper" id="tab_nails"> 
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Покрытие гель лак</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Маникюр</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Детский маникюр</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Наращивание ногтей</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Мужской маникюр</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Укрепление ногтей</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Уход за руками</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Снятие гель лака</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+            </div>
+            <!-- makeup -->
+            <div class="service-price__wrapper" id="tab_makeup"> 
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Свадебный макиях</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Вечерний макияж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Урок макияжа</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Экспресс макияж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Макияж+Укладка</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">3500 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Подбор косметики</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1200 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Повседневный макияж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Детский макияж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2000 ₽</p>
+                </div>
+            </div>
+            <!-- brows -->
+            <div class="service-price__wrapper" id="tab_brows"> 
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Окрашивание бровей</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Коррекция бровей</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Ламинирование бровей</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Долговременная укладка</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Наращивание ресниц</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Ламинирование ресниц</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Голливудский объем</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Тройной объем</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">1700 ₽</p>
+                </div>
+            </div>
+            <!-- massage -->
+            <div class="service-price__wrapper" id="tab_massage"> 
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Общий массаж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">5000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Антицеллюлитный массаж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">4500 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Лечебный массаж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">5000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Обертывание</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2500 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Массаж лица</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">5000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Массаж ступней</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">3000 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Массаж головы</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">2500 ₽</p>
+                </div>
+                <div class="service-price__card">
+                    <div class="service-price__name">
+                        <h2 class="service-price__subtitle subtitle">Тайский массаж</h2>
+                        <p class="service-price__text text-medium">Короткие волосы</p>
+                    </div>
+                    <p class="service-price__price">3000 ₽</p>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="masters">
+    <section class="masters" id="masters">
         <div class="container">
             <h1 class="masters__title title">Мастера</h1>
             <p class="masters__text">Дружная команда настоящих профессионалов</p>
@@ -268,19 +569,79 @@
         </div>
     </section>
 
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="portfolio__wrapper">
                 <h1 class="portfolio__title title">Наши работы</h1>
                 <div class="arrow__wrapper">
-                    <img class="arrow__left arrow" src="./Img/portfolio/left.svg" alt="left">
-                    <img class="arrow__right arrow" src="./Img/portfolio/right.svg" alt="right">
+                    <img class="arrow__left arrow" id="left" src="./Img/portfolio/left.svg" alt="left">
+                    <img class="arrow__right arrow" id="right" src="./Img/portfolio/right.svg" alt="right">
                 </div>
              </div>
         </div>
 
-        <div class="portfolio__about">
-                  <div class="portfolio__photo">
+        <div class="portfolio-about">
+            <a href="./Img/portfolio/portfolio1.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio1.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio2.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio2.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio3.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio3.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio4.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio4.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio1.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio1.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio2.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio2.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio3.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio3.png" alt=""></a>
+            <a href="./Img/portfolio/portfolio4.png" data-fancybox="gallery" class="portfolio-about__photo"><img 
+                class="portfolio-about__img" src="./Img/portfolio/portfolio4.png" alt=""></a>
+
+
+
+
+
+
+
+
+
+                  <!-- <div class="portfolio__photo">
+                        
+                    <a href="./Img/portfolio/portfolio1.png" data-fancybox="gallery" class="portfolio__link">
+                        <img class="portfolio__img" src="./Img/portfolio/portfolio1.png" alt="portfolio">
+                    </a>
+
+                    <a href="./Img/portfolio/portfolio1.png" data-fancybox="gallery" class="portfolio__link">
+                        <div class="portfolio__search">
+                            <img class="search" src="./Img/portfolio/search.png" alt="search">
+                            <p class="portfolio__link" href="#">Увеличить</p>
+                        </div>
+                    </a>
+                        
+                    </div>
+                    <div class="portfolio__photo">
+                        <img class="portfolio__img" src="./Img/portfolio/portfolio2.png" alt="portfolio">
+                        <div class="portfolio__search">
+                            <a href=""><img class="search" src="./Img/portfolio/search.png" alt="search"></a>
+                            <a class="portfolio__link" href="#">Увеличить</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__photo">
+                        <img class="portfolio__img" src="./Img/portfolio/portfolio3.png" alt="portfolio">
+                        <div class="portfolio__search">
+                            <img class="search" src="./Img/portfolio/search.png" alt="search">
+                            <a class="portfolio__link" href="#">Увеличить</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__photo">
+                        <img class="portfolio__img" src="./Img/portfolio/portfolio4.png" alt="portfolio">
+                        <div class="portfolio__search">
+                            <img class="search" src="./Img/portfolio/search.png" alt="search">
+                            <a class="portfolio__link" href="#">Увеличить</a>
+                        </div>
+                    </div> 
+                    <div class="portfolio__photo">
                         <img class="portfolio__img" src="./Img/portfolio/portfolio1.png" alt="portfolio">
                         <div class="portfolio__search">
                             <img class="search" src="./Img/portfolio/search.png" alt="search">
@@ -307,7 +668,7 @@
                             <img class="search" src="./Img/portfolio/search.png" alt="search">
                             <a class="portfolio__link" href="#">Увеличить</a>
                         </div>
-                    </div> 
+                    </div>  -->
         </div>
         <div class="container">
                 <div class="brands">
@@ -322,7 +683,7 @@
                 </div>
         </div>
     </section>
-    <section class="contact-us">
+    <section class="contact-us" id="contact-us">
         <div class="container">
             <div class="contact__form">
                 <div class="contact-us__wrapper">
@@ -342,9 +703,9 @@
                     <form class="form__wrapper">
                         <h2 class="form__subtitle subtitle">Быстрая запись</h2>
                         <p class="form__text text-medium">Наш менеджер перезвонит в течение нескольких минут, уточнит подробности и согласует время.</p>
-                        <input class="client-name" placeholder="Ваше имя" type="text">
-                        <input class="client-phone" placeholder="+7 (___) ___-__-__" type="text">
-                        <button class="form__button button">Записаться</button>
+                        <input class="client-name" placeholder="Ваше имя" type="text" name="name">
+                        <input class="client-phone" placeholder="+7 (___) ___-__-__" type="text" name="phone">
+                        <button class="form__button button" type="submit">Записаться</button>
                         <p class="form__policy text-small">Нажимая на кнопку вы соглашаетесь с <a class="personal__data text-small" href="#">обработкой персональных данных</a></p>
                     </form>
                 </div>
@@ -379,6 +740,9 @@
              </nav>  
         </div>
     </footer>
-    
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="./slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>

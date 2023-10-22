@@ -1,5 +1,5 @@
 @import './variables';
-@import './media.scss';
+@import './_media.scss';
 @import './libs';
 
 /* COMMON */
@@ -17,7 +17,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
-    color: #333;
+    color: $black;
 }
 
 .header {
@@ -108,6 +108,21 @@ h1, h2, h3, h4, h5, h6, p {
         z-index: 2;
         background-image: url("../Img/header/Girl.png");
     }
+
+    &__menu-btn {
+        border-style: none;
+        background: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        display: none;
+    }
+
+}
+
+.burger__menu {
+    width: 30px;
+    height: 30px;
+    background-color: none;
 }
 
 .container {
@@ -326,6 +341,10 @@ a:hover {
     padding: 100px 0;
 
     &__wrapper {
+        display: none;
+    }
+
+    &__wrapper.active {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -358,6 +377,9 @@ a:hover {
         }
 
     &__link {
+
+        display: block;
+        
         &:hover {
             color: $green;
             cursor: pointer;
@@ -366,7 +388,13 @@ a:hover {
         &:active {
             text-decoration: underline;
         }
+
+        &.active {
+            color: #00BF78;
+            text-decoration: underline;
+        }
     }
+
 }
     
 /* MASTERS */
@@ -441,73 +469,116 @@ a:hover {
         justify-content: space-between;
     }
 
+    &__title {
+        padding: 52px 0;
+    }
+}
+
+.portfolio-about {
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 116px;
+
     &__photo {
-        cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      width: 338px;
-      height: 338px;
-      text-align:center;
-      transition: 0.5s;
-      border-radius: 8px;
+        display: block;
+        padding: 15px;
+        width: 338px;
+        height: 338px;
+        object-fit: cover;
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 0,5s;
+
+            &::before {
+                content: url(../Img/portfolio/search.png);
+                position: absolute;
+                top: 40%;
+                left: 40%;
+                z-index: 100;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            &::after {
+                content: 'Увеличить';
+                position: absolute;
+                top: 55%;
+                left: 35%;
+                font-size: 14px;
+                line-height: 17px;
+                color: #FFF;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+        }
     }
 
     &__img {
-        border-radius: 8px;
-    }
-    
-    &__search {
-        background-color: #000000;
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: $white;
-        -webkit-transition: all 300ms ease-out;
-        -moz-transition: all 300ms ease-out;
-        -o-transition: all 300ms ease-out;
-        -ms-transition: all 300ms ease-out;
-        transition: all 300ms ease-out;
-        opacity: 0;
         width: 338px;
         height: 338px;
-        padding: 130px 20px;
-        font-size: 14px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 8px;
         border-radius: 8px;
-    }
-
-    &__photo {
-        &:hover .portfolio__search {
-            opacity: 0.5;
-        }
-    
-        &:hover {
-            transform: scale(1.1);
-        }
-    }
-
-    &__link {
-        color: $white;
-
-        &:hover {
-            color: $white;
-        }
-    }
-
-    &__about {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-bottom: 116px;
-    }
-
-    &__title {
-        padding-bottom: 52px;
+        object-fit: cover;
     }
 }
+
+    // &__photo {
+    //     cursor: pointer;
+    //   position: relative;
+    //   overflow: hidden;
+    //   width: 338px;
+    //   height: 338px;
+    //   text-align:center;
+    //   transition: 0.5s;
+    //   border-radius: 8px;
+    // }
+
+    // &__img {
+    //     border-radius: 8px;
+    // }
+    
+    // &__search {
+    //     background-color: #000000;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     color: $white;
+    //     -webkit-transition: all 300ms ease-out;
+    //     -moz-transition: all 300ms ease-out;
+    //     -o-transition: all 300ms ease-out;
+    //     -ms-transition: all 300ms ease-out;
+    //     transition: all 300ms ease-out;
+    //     opacity: 0;
+    //     width: 338px;
+    //     height: 338px;
+    //     padding: 130px 20px;
+    //     font-size: 14px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     row-gap: 8px;
+    //     border-radius: 8px;
+    // }
+
+    // &__photo {
+    //     &:hover .portfolio__search {
+    //         opacity: 0.5;
+    //     }
+    
+    //     &:hover {
+    //         transform: scale(1.1);
+    //     }
+    // }
+
+    // &__link {
+    //     color: $white;
+
+    //     &:hover {
+    //         color: $white;
+    //     }
+    // }
 
 .arrow {
     cursor: pointer;
@@ -726,24 +797,14 @@ a:hover {
 
     /* PORTFOLIO */
     
-    .portfolio__photo {
+    .portfolio-about__photo {
         height: 220px;
         width: 220px;
     }
 
-    .portfolio__img {
+    .portfolio-about__img {
         height: 220px;
         width: 220px;
-    }
-
-    .portfolio__search {
-        height: 220px;
-        width: 220px;
-        padding: 75px 20px;
-    }
-
-    .portfolio__about {
-        gap: 15px;
     }
 
 }
@@ -842,6 +903,10 @@ a:hover {
     /* Small Devices, Tablets */ 
     @media only screen and (max-width: 768px) /*ОТ 481 ДО 768*/ {
         
+        body.lock {
+            overflow: hidden;
+        }
+
         /*HEADER*/ 
     
         .header__logo {
@@ -880,6 +945,54 @@ a:hover {
         .header__title {
             font-size: 36px;
             text-align: center;
+        }
+
+        .header__menu-btn {
+            display: block;
+            margin-right: 50px;
+            
+            &.active {
+                position: relative;
+                z-index: 1000;
+            }
+        }
+
+        .header__top {
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navigation__list.mobile__open {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 999;
+
+            padding-top: 40px;
+
+            flex-direction: column;
+            row-gap: 30px;
+            text-align: center;
+            justify-content: flex-start;
+            overflow: auto;
+            flex-wrap: nowrap;
+            margin: 0;
+        }
+
+        .navigation-items {
+            width: 100%;
+        }
+
+        .navigation-link {
+            font-size: 25px;
+            display: block;
+            width: 100%;
         }
 
             /* ABOUT */ 
@@ -1019,6 +1132,22 @@ a:hover {
         }
     } 
 
+    @media only screen and (max-width: 550px) /*ОТ 481 ДО 550*/ {
+
+    /* PORTFOLIO */
+    
+        .portfolio-about__photo {
+            height: 150px;
+            width: 150px;
+        }
+
+        .portfolio-about__img {
+            height: 150px;
+            width: 150px;
+        }
+
+}
+
     /* Extra Small Devices, Phones */ 
     @media only screen and (max-width: 480px) /*ОТ 321 ДО 480*/ { 
         .header__main {
@@ -1031,6 +1160,10 @@ a:hover {
         } 
         .header__desc {
             font-size: 12px;
+        }
+
+        .header__menu-btn {
+            margin-right: 20px;
         }
         
         /* ABOUT */ 
@@ -1124,7 +1257,7 @@ a:hover {
             padding-bottom: 25px;
         }
 
-        /* PORTFOLIO */
+        /* FOOTER */
 
         .footer__navigation {
             display: flex;
@@ -1144,10 +1277,16 @@ a:hover {
         .form__policy {
             text-align: center;
         }
-
-
-
     } 
     /* Custom, iPhone Retina */ 
-    @media only screen and (max-width: 320px) { 
+    @media only screen and (max-width: 420px) { 
+        .portfolio-about__photo {
+            height: 220px;
+            width: 220px;
+        }
+    
+        .portfolio-about__img {
+            height: 220px;
+            width: 220px;
+        }
     }

@@ -1,3 +1,4 @@
+
 // @media only screen and (max-width: 1280px) /*ОТ 993 ДО 1280*/ {
 
 //     .container {
@@ -182,10 +183,8 @@
         
 //         /*HEADER*/ 
     
-//         .header {
-//             &__logo {
-//                 font-size: 16px;
-//             }
+//         .header__logo {
+//             font-size: 16px;
 //         }
 //         .header__number {
 //             max-width: 90px;
@@ -249,13 +248,17 @@
 
 //         /* SERVICE-PRICE */
 
+//         .service-price {
+//             padding: 50px 0;
+//         }
+
 //         .service-price__title {
 //             text-align: center;
 //         }
 
 //         .service-price__navigation {
 //             flex-wrap: wrap;
-//             justify-content: space-between;
+//             justify-content: flex-start;
 //             row-gap: 20px;
 //         }
 
@@ -353,8 +356,8 @@
 //             display: flex;
 //             justify-content: space-between;
 //         }
-
 //     } 
+
 //     /* Extra Small Devices, Phones */ 
 //     @media only screen and (max-width: 480px) /*ОТ 321 ДО 480*/ { 
 //         .header__main {
@@ -394,7 +397,6 @@
 //             bottom: 60px;
 //         }
 
-
 //         /* SERVICE-LIST */ 
 
 //         .service-list__item {
@@ -415,7 +417,6 @@
 //         .service-list__text {
 //             text-align: center;
 //         }
-
 
 //         /* SERVICE-PRICE */
 
@@ -482,8 +483,6 @@
 //         .form__policy {
 //             text-align: center;
 //         }
-
-
 
 //     } 
 //     /* Custom, iPhone Retina */ 
