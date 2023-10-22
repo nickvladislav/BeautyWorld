@@ -524,62 +524,6 @@ a:hover {
     }
 }
 
-    // &__photo {
-    //     cursor: pointer;
-    //   position: relative;
-    //   overflow: hidden;
-    //   width: 338px;
-    //   height: 338px;
-    //   text-align:center;
-    //   transition: 0.5s;
-    //   border-radius: 8px;
-    // }
-
-    // &__img {
-    //     border-radius: 8px;
-    // }
-    
-    // &__search {
-    //     background-color: #000000;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     color: $white;
-    //     -webkit-transition: all 300ms ease-out;
-    //     -moz-transition: all 300ms ease-out;
-    //     -o-transition: all 300ms ease-out;
-    //     -ms-transition: all 300ms ease-out;
-    //     transition: all 300ms ease-out;
-    //     opacity: 0;
-    //     width: 338px;
-    //     height: 338px;
-    //     padding: 130px 20px;
-    //     font-size: 14px;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     row-gap: 8px;
-    //     border-radius: 8px;
-    // }
-
-    // &__photo {
-    //     &:hover .portfolio__search {
-    //         opacity: 0.5;
-    //     }
-    
-    //     &:hover {
-    //         transform: scale(1.1);
-    //     }
-    // }
-
-    // &__link {
-    //     color: $white;
-
-    //     &:hover {
-    //         color: $white;
-    //     }
-    // }
-
 .arrow {
     cursor: pointer;
 }
