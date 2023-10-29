@@ -1,6 +1,7 @@
 // HEADER-LINK
 const mobileMenuBtn = document.querySelector('.header__menu-btn');
 const mobileMenu = document.querySelector('.navigation__list');
+const fullForm = document.querySelector('.full-form');
 const links = Array.from(mobileMenu.children);
 
 function toggleMenu () {
@@ -47,14 +48,16 @@ document.querySelector('.service-price__link').click();
 
 // SUBMIT-FORM
 
+// smallForm
+
 function serializeForm(formNode) {
     const { elements } = formNode;
     const data = Array.from(elements)
     .filter((item) => !!item.name)
         .map((element) => {
-            const { name, value } = element;
+          const { name, value } = element
             
-            return { name, value}
+          return { name, value}
         })
 
         console.log(data);
@@ -68,7 +71,16 @@ function submitForm(event) {
 const form = document.querySelector('.form__wrapper');
 form.addEventListener('submit', submitForm);
 
-// PORTPHOLIO
+//fullForm
+
+function submitFullForm(event) {
+  event.preventDefault();
+  serializeForm(fullForm);
+}
+
+fullForm.addEventListener('submit', submitFullForm);
+
+// PORTFOLIO
 
 function carousel() {
     $('.portfolio-about').slick({
@@ -147,15 +159,80 @@ function carousel() {
                   focusOnSelect: true,
                 }
               },
-          // You can unslick at a given breakpoint now by adding:
-          // settings: "unslick"
-          // instead of a settings object
         ]
       });
-};
+}
 
 carousel();
 
 Fancybox.bind("[data-fancybox]", {
-    // Your custom options
+
   });
+
+  // SING-UP FORM
+
+  const fullFormMenuBtn = document.querySelectorAll('.sing-up__button');
+  const closeBtn = document.querySelector('.close');
+
+  function openFullForm () {
+    fullForm.classList.toggle('active');
+    document.body.classList.toggle('lock');
+  };
+
+  fullFormMenuBtn.forEach((btn) => {
+    btn.addEventListener('click', openFullForm)
+});
+
+  closeBtn.addEventListener('click', openFullForm);
+
+  function handleFormSubmit(event) {     
+    event.preventDefault()
+    console.log('Отправка!')
+  }
+  
+  fullForm.addEventListener('submit', handleFormSubmit)
+  
+
+  // FORM VALIDATION
+
+  // function checkValidity(event) {
+  //   const fullForm = event.target.form;
+  //   const isValid = fullForm.checkValidity();
+  
+  //   formNode.querySelector('.close-fullform').disabled = !isValid;
+  // }
+
+  // checkValidity();
+  
+  // fullForm.addEventListener('input', checkValidity);
+
+  // НЕ РАБОТАЕТ, КНОПКА НЕ БЛОКИРУЕТСЯ
+
+  $(function () {
+    $("#fullForm").validate({
+      rules: {
+        name: {
+          required: true,
+        },
+        phone: {
+          required: true,
+        }
+      },
+      messages: {
+        name: {
+          required: 'Введите ваше имя'
+        },
+        phone: {
+          required: 'Введите ваш номер телефона'
+        }
+      }
+    });
+  });
+
+  jQuery(function ($) {
+    $(".client-phone").mask("+7 (999) 999-99-99");
+    });
+
+    // SENDING DATA
+
+    const API_PATH = 'http://localhost:3001/api';
