@@ -1,0 +1,32 @@
+[
+    {
+        "firstName": "Ирина",
+        "patronymic": "Сергеевна",
+        "surName": "Краснова",
+        "position": "Мастер ногтевого сервиса",
+        "photo": "",
+        "startWorkDate": "2023-10-23T13:28:19.751Z",
+        "id": 1,
+        "fullName": "Краснова Арина Сергеева"
+    },
+    {
+        "firstName": "Жанна",
+        "patronymic": "Сергеевна",
+        "surName": "Калилова",
+        "position": "Визажист-стилист",
+        "photo": "",
+        "startWorkDate": "2023-10-23T13:28:19.751Z",
+        "id": 2,
+        "fullName": "Калилова Жанна Сергеева"
+    },
+    {
+        "firstName": "Алина",
+        "patronymic": "Сергеевна",
+        "surName": "Киселева",
+        "position": "Парикмахер",
+        "photo": "",
+        "startWorkDate": "2023-10023T13:28:19.751Z",
+        "id": 3,
+        "fullName": "Киселева Алина Сергеевна"
+    }
+]

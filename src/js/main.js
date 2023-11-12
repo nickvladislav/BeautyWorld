@@ -1,8 +1,9 @@
-// HEADER-LINK
+const API_PATH = 'http://localhost:3001/api'; // SENDING DATA
 const mobileMenuBtn = document.querySelector('.header__menu-btn');
 const mobileMenu = document.querySelector('.navigation__list');
 const fullForm = document.querySelector('.full-form');
 const links = Array.from(mobileMenu.children);
+const form = document.querySelector('.form__wrapper'); // smallForm
 
 function toggleMenu () {
     mobileMenu.classList.toggle('mobile__open');
@@ -50,37 +51,93 @@ document.querySelector('.service-price__link').click();
 
 // smallForm
 
+toastr.options = {
+  "closeButton": true,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "hideDuration": "1000",
+}
+
+function checkValidity(event) {
+  const formNode = event.target.form
+  const isValid = formNode.checkValidity()
+
+  formNode.querySelector('button').disabled = !isValid
+}
+
+form.addEventListener('input', checkValidity)
+
+
 function serializeForm(formNode) {
     const { elements } = formNode;
-    const data = Array.from(elements)
+    const dataArr = Array.from(elements)
     .filter((item) => !!item.name)
         .map((element) => {
           const { name, value } = element
             
-          return { name, value}
+          return { name, value }
         })
 
-        console.log(data);
+        const data = {};
+
+          for (let n = 0; n < dataArr.length; n++) {
+            data[dataArr[n]["name"]] = dataArr[n]["value"];
+          }
+
+          console.log(data);
+          return data;
+        }
+
+async function sendData(data) {
+  return await fetch(`${API_PATH}/orders`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  })
 }
 
-function submitForm(event) {
-    event.preventDefault();
-    serializeForm(form);
+async function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const data = serializeForm(event.target);
+
+  toggleLoader();
+  const { status } = await sendData(data);
+  const response = await sendData(data);
+  console.log(response);
+  toggleLoader();
+  if (status === 201) {
+    // succsess
+    toastr.success(`${data.name}! Ваша заявка отправлена! В ближайшее время с вами свяжется менеджер`);
+    event.target.reset();
+    event.target.classList.remove('active');
+    document.body.classList.remove('lock');
+
+  } else {
+    // error
+    toastr.error('Что-то пошло не так')
+    
+  }
 }
 
-const form = document.querySelector('.form__wrapper');
-form.addEventListener('submit', submitForm);
+form.addEventListener('submit', handleFormSubmit);
+
+
+
+// LOADER SERNDING
+
+function toggleLoader() {
+  const loader = document.getElementById('loader')
+  loader.classList.toggle('hidden')
+}    
+
 
 //fullForm
 
-function submitFullForm(event) {
-  event.preventDefault();
-  serializeForm(fullForm);
-}
+fullForm.addEventListener('submit', handleFormSubmit);
 
-fullForm.addEventListener('submit', submitFullForm);
 
-// PORTFOLIO
+// CAROUSEL
 
 function carousel() {
     $('.portfolio-about').slick({
@@ -185,28 +242,7 @@ Fancybox.bind("[data-fancybox]", {
 
   closeBtn.addEventListener('click', openFullForm);
 
-  function handleFormSubmit(event) {     
-    event.preventDefault()
-    console.log('Отправка!')
-  }
   
-  fullForm.addEventListener('submit', handleFormSubmit)
-  
-
-  // FORM VALIDATION
-
-  // function checkValidity(event) {
-  //   const fullForm = event.target.form;
-  //   const isValid = fullForm.checkValidity();
-  
-  //   formNode.querySelector('.close-fullform').disabled = !isValid;
-  // }
-
-  // checkValidity();
-  
-  // fullForm.addEventListener('input', checkValidity);
-
-  // НЕ РАБОТАЕТ, КНОПКА НЕ БЛОКИРУЕТСЯ
 
   $(function () {
     $("#fullForm").validate({
@@ -233,6 +269,3 @@ Fancybox.bind("[data-fancybox]", {
     $(".client-phone").mask("+7 (999) 999-99-99");
     });
 
-    // SENDING DATA
-
-    const API_PATH = 'http://localhost:3001/api';

@@ -69,4 +69,4 @@ exports.images = copy;
 exports.clean = cleanDist;
 
 exports.build = series(cleanDist, parallel(buildSass, buildHtml, copy, buildJS));
- exports.default = series([buildSass, buildJS], parallel(createDevServer, serve));
+exports.default = series([buildSass, buildJS], parallel(createDevServer, serve));
