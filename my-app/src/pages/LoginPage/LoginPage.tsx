@@ -12,8 +12,10 @@ function LoginPage() {
 
     return (
         <>
-            <h1>LoginPage</h1>
-            <AuthForm onLogin={login} />
+            <div className='login-page'>
+                <h1 className='login-name'>LoginPage</h1>
+                <AuthForm onLogin={login} />
+            </div>
         
         </>
     )

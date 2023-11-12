@@ -3,6 +3,7 @@ import axios from 'axios';
 import PubSub from './PubSub';
 import TokenService from './TokenService';
 import { API_PATH } from '../constants';
+import { TOKEN_KEY } from './TokenService';
 
 const httpClient = axios.create({
   baseURL: API_PATH,
@@ -13,7 +14,7 @@ httpClient.interceptors.response.use(
   response => response,
   async error => {
       const originalRequest = error.config;
-      const hasAccessToken = TokenService.getToken();
+      const hasAccessToken = localStorage.getItem(TOKEN_KEY);
 
       if (error.response.status === 401 && error.config && !error.config._isRetry && Boolean(hasAccessToken)) {
           originalRequest._isRetry = true;
@@ -75,5 +76,19 @@ export class HttpService {
     if (response.status === 401) {
       PubSub.emit('logout');
     }
+  }
+  
+    async patch<T>(path: string, body?: T) {
+    const response = await httpClient.patch(
+      `${this.baseApi}/${path}`, body,
+        { headers: this.baseHeaders }
+    );
+    return response.data;
+  }
+
+  delete(path:string) {
+    return httpClient.delete(`${this.baseApi}/${path}`, {
+      headers: this.baseHeaders
+    });
   }
 }

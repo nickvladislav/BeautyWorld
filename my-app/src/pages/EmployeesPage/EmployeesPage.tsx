@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { observer } from "mobx-react-lite";
 
 import employeesMock from '../../misc/employeesMock.json';
@@ -15,7 +15,7 @@ function EmployeesPage() {
 
     return (
         <>
-            <h1>Сотрудники</h1>
+            <h1>Мастера</h1>
 
             <div>
                     <div>

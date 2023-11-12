@@ -4,13 +4,8 @@ import './App.css';
 
 import { useAuth } from './contexts/AuthContext';
 
-// import {
-//   OrderedListOutlined,
-//   DollarOutlined,
-//   UserOutlined,
-//   ScissorOutlined,
-// } from '@ant-design/icons';
-// import { Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Button, Layout, Menu } from 'antd';
+const { Header, Content, Footer } = Layout;
 
 function App() {
   const { isLoggedIn, logout, checkAuth } = useAuth();
@@ -24,81 +19,60 @@ function App() {
   }
 
   return (
-    <>
-      <header>
-        <nav>
-          <ul>
-            <li><Link to="/">Заявки</Link></li>
-            <li><Link to="/employees">Сотрудники</Link></li>
-          </ul>
-        </nav>
+    <div style={{ background: '#ececec' }}>
+    {isLoggedIn && (
+      <>
+        <Layout className="layout">
 
-        <button onClick={logout}>Logout</button>
-      </header>
+          <Header className='page-header'>
+            <Menu
+              theme="dark"
+              mode="horizontal"
+              defaultSelectedKeys={['1']}
+            >
+              <Menu.Item key="1">
+                 <Link to="/">Заявки</Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                 <Link to="/employees">Мастера</Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                 <Link to="/">Услуги</Link>
+              </Menu.Item>
+            </Menu>
+            <Button className='logout-button' onClick={logout} type="primary">Logout</Button>
+          </Header>
 
-      <main>
-        <Outlet />
-      </main>
-    </>
+          <Content style={{ padding: '0 50px' }}>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+            </Breadcrumb>
+            <div className="site-layout-content">
+              <Outlet />
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>Beauty Saloon ©2022</Footer>
+        </Layout>
+
+      </>
+    )}
+  </div>
+    // <>
+    //   <header>
+    //     <nav>
+    //       <ul>
+    //         <li><Link to="/">Заявки</Link></li>
+    //         <li><Link to="/employees">Сотрудники</Link></li>
+    //       </ul>
+    //     </nav>
+
+    //     <button onClick={logout}>Logout</button>
+    //   </header>
+
+    //   <main>
+    //     <Outlet />
+    //   </main>
+    // </>
   )
 }
-
-// function App() {
-  
-//   const { Header, Sider, Content } = Layout;
-//   const [collapsed] = useState(false);
-//   const {
-//     token: { colorBgContainer },
-//   } = theme.useToken();
-
-//   return (
-//      <div className='App'>
-//         <Layout>
-//       <Sider trigger={null} collapsible collapsed={collapsed}>
-//         <div className="demo-logo-vertical" />
-//         <Menu
-//           theme="dark"
-//           mode="inline"
-//           defaultSelectedKeys={['1']}
-//           items={[
-//             {
-//               key: '1',
-//               icon: <OrderedListOutlined />,
-//               label: 'Заявки',
-//             },
-//             {
-//               key: '2',
-//               icon: <ScissorOutlined />,
-//               label: 'Мастера',
-//             },
-//             {
-//               key: '3',
-//               icon: <DollarOutlined />,
-//               label: 'Услуги',
-//             },
-//             {
-//               key: '4',
-//               icon: <UserOutlined />,
-//               label: 'Клиенты',
-//             },
-//           ]}
-//         />
-//       </Sider>
-//       <Layout>
-//         <Header style={{ padding: 0, background: colorBgContainer }}>BeautyWorld</Header>
-//         <Content
-//           style={{
-//             margin: '24px 16px',
-//             padding: 24,
-//             minHeight: 280,
-//             background: colorBgContainer,
-//           }}
-//         >
-//         </Content>
-//       </Layout>
-//     </Layout>
-//      </div>
-//   );
-//     };
 
 export default App;

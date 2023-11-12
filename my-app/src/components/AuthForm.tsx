@@ -38,7 +38,7 @@ export function AuthForm({ onLogin }: AuthFormProps) {
                 <input type="password" name='password' required {...password} />
             </label>
 
-            <button>Login</button>
+            <button className='login-button'>Login</button>
         </form>
     )
 }

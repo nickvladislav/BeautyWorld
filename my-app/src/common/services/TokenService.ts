@@ -1,14 +1,14 @@
 import {jwtDecode} from 'jwt-decode';
 
-const TOKEN_KEY = 'accessToken';
+export const TOKEN_KEY = 'accessToken';
 
 class TokenService {
     setToken(token: string): void {
         localStorage.setItem(TOKEN_KEY, token);
     }
 
-    getToken(): string | undefined {
-        return localStorage.getItem(TOKEN_KEY)!;
+    getToken(): string | null {
+        return localStorage.getItem(TOKEN_KEY);
     }
 
     removeToken(): void {

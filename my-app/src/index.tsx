@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from './contexts/AuthContext';
 import LoginPage from './pages/LoginPage/LoginPage';
-import OrdersPage from './pages/OrgersPage/OrdersPage';
+import { OrdersPage } from './pages/OrdersPage/OrdersPage';
 import EmployeesPage from './pages/EmployeesPage/EmployeesPage';
 
 const root = ReactDOM.createRoot(
